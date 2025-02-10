@@ -58,6 +58,24 @@ class Service {
     }
   };
 
+  contarPalabrasService = async () => {
+    try {
+      const palabras = this.palabraModel.palabras;  // Obtenemos las palabras
+      const conteo = {};
+  
+      // Contamos las veces que aparece cada palabra
+      palabras.forEach((palabra) => {
+        conteo[palabra] = conteo[palabra] ? conteo[palabra] + 1 : 1;
+      });
+  
+      return conteo;
+    } catch (error) {
+      console.error("Error al contar palabras:", error);
+      throw error;  // Lanzamos el error para que se capture en el controlador
+    }
+  };
+  
+
 }
 
 export default Service;

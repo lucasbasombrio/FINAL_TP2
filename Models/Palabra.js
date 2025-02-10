@@ -24,6 +24,14 @@ class Palabra {
       this.palabras.push(...array);
       return this.palabras;
     };
+
+    contarPalabras = async () => {
+      const conteo = {};
+      this.palabras.forEach((palabra) => {
+        conteo[palabra] = (conteo[palabra] || 0) + 1;
+      });
+      return conteo;
+    };
   }
   
   export default Palabra;
